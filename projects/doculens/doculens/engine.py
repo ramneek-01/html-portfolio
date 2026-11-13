@@ -1,15 +1,15 @@
 from __future__ import annotations
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass,asdict
 from pathlib import Path
-import re, joblib
+import re,joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 @dataclass
 class Passage:
-    text: str
-    source: str
-    page: int | None = None
+    text:str
+    source:str
+    page:int|None=None
 
 class DocumentIndex:
     def __init__(self):
@@ -17,10 +17,10 @@ class DocumentIndex:
         self.vectorizer=TfidfVectorizer(stop_words="english",ngram_range=(1,2),max_features=50000,sublinear_tf=True)
         self.matrix=None
     @staticmethod
-    def split(text: str,max_words: int=120,overlap: int=25):
-        words=re.findall(r"\\S+",text)
+    def split(text:str,max_words:int=120,overlap:int=25):
+        words=re.findall(r"\S+",text)
         if not words:return []
-        step=max(1,max_words-overlap); chunks=[]
+        step=max(1,max_words-overlap);chunks=[]
         for i in range(0,len(words),step):
             chunks.append(" ".join(words[i:i+max_words]))
             if i+max_words>=len(words):break
