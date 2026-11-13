@@ -9,7 +9,7 @@ def main():
     if a.format=="json":print(json.dumps(reports,indent=2))
     else:
         for r in reports:
-            print(f"\\n{r['file']} | {r['lines']} lines | {r['function_count']} functions")
+            print(f"\n{r['file']} | {r['lines']} lines | {r['function_count']} functions")
             for f in r["functions"]:print(f"  {f['name']}:{f['line']} complexity={f['complexity']} length={f['lines']}")
             for f in r["findings"]:print(f"  [{f['severity'].upper()}] {f['rule']}:{f['line']} {f['message']}")
     findings=[f for r in reports for f in r["findings"]]
