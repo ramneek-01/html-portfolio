@@ -1,13 +1,13 @@
-# DocuLens — Local Document Intelligence
+# DocuLens — Local Document Search
 
-A local document retrieval tool that indexes PDF, Markdown, and text files, then returns ranked evidence passages with source metadata.
+A local tool for indexing PDF, Markdown, and text files and retrieving relevant passages with source metadata.
 
-## Capabilities
-- PDF page extraction and recursive folder ingestion.
-- Passage chunking with overlap.
-- TF-IDF unigram/bigram indexing and cosine-similarity ranking.
-- Source filename and PDF page attribution for each result.
-- CLI and optional Streamlit interface; no paid API or hosted LLM required.
+## Features
+- PDF page extraction and folder ingestion.
+- Text chunking with overlap.
+- TF-IDF indexing and cosine-similarity ranking.
+- Source filename and PDF page references.
+- Command-line interface and optional Streamlit UI.
 
 ## Run
 ```bash
@@ -18,4 +18,4 @@ streamlit run app.py
 pytest
 ```
 
-This is retrieval, not generative question answering. It returns passages for human inspection. Local indexes may contain sensitive document text; protect them accordingly.
+DocuLens retrieves passages; it does not generate answers. Review retrieved text in context. Protect local indexes if they contain sensitive documents.
