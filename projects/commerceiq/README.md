@@ -1,12 +1,12 @@
 # CommerceIQ — Demand Forecasting & Inventory Intelligence
 
-A reproducible SKU-level demand forecasting workflow with an inventory decision-support layer.
+A SKU-level demand forecasting workflow with an inventory decision-support layer.
 
-## Capabilities
-- Validates daily SKU sales data and engineers backward-looking lag, rolling, and calendar features.
-- Compares a Random Forest regressor with a 7-day seasonal-naive baseline using a chronological holdout.
-- Generates recursive short-horizon forecasts and replenishment suggestions using lead-time demand plus a configurable safety-stock buffer.
-- Includes a Streamlit dashboard, CLI, CSV export, synthetic-data generator, and tests.
+## Features
+- Daily sales validation and lag, rolling, and calendar features.
+- Random Forest forecasts compared with a 7-day seasonal-naive baseline using a chronological holdout.
+- Short-horizon forecasts and replenishment suggestions based on lead-time demand and safety stock.
+- Streamlit dashboard, command-line interface, CSV export, synthetic-data generator, and tests.
 
 ## Run
 ```bash
@@ -17,6 +17,6 @@ streamlit run app.py
 pytest
 ```
 
-Schema: `date, sku, units_sold, unit_price, stock_on_hand, lead_time_days`.
+Expected columns: `date, sku, units_sold, unit_price, stock_on_hand, lead_time_days`.
 
-The generated demonstration data is synthetic. Evaluate on real historical data with rolling-origin validation before using forecasts for operational decisions.
+The included data is synthetic. Validate the model against real historical data before relying on forecasts for purchasing decisions.
